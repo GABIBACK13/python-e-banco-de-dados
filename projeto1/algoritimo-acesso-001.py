@@ -1,4 +1,3 @@
-#tá nessa pasta pq esqueci de jogar pra outra e to com preguiça
 import sqlite3
 conn = sqlite3.connect('projeto1/exemplo.db')
 cursor = conn.cursor()
@@ -54,8 +53,8 @@ def acessRoom(sala,funcionario):
         return(f'\nAcesso concedido para o funcionário {funcionario}.\n\n')
 #CHAMADA DE FUNÇÃO
 
-chamarLista()
-#print(acessRoom(salaB,'Gabriel Back'))
+#chamarLista()
+print(acessRoom(salaB,'Gabriel Back'))
 #ListAdd()
 
 #CLOSE

@@ -1,6 +1,6 @@
 import sqlite3
 
-conexao = sqlite3.connect('escolaf.db')
+conexao = sqlite3.connect('projeto-escola/escolaf.db')
 cursor = conexao.cursor()
 
 cursor.execute('''
@@ -48,7 +48,18 @@ def retornar_log():
         print(f"\nID: {aluno_id},\n Nome: {dados['nome']},\n Turma: {dados['turma']},\n Notas: {dados['notas']}\n")
 
 def calcular_media(lista):
-    return round(sum(lista) / len(lista), 2)
+    if lista:  # Verificar se a lista não está vazia
+        media_geral = sum(lista) / len(lista)
+    else:
+        media_geral = 0 
+    
+    return round(media_geral, 2)
+
+def calcular_media_geral(dictionary):
+    # Extrair os valores de "media"
+    medias = [aluno["media"] for aluno in dictionary.values() if "media" in aluno]
+
+    return calcular_media(medias)
 
 def selecionar_notas(id):
     select_notas = "SELECT nota, aluno_id, * FROM notas WHERE aluno_id LIKE ?"
@@ -72,10 +83,16 @@ def retornar_log_turma(turma):
             alunos_dict2[id] = {"ID":id, "nome":name_list[idf], "turma":turma_list[idf], "media":selecionar_notas(id)}
         idf = idf + 1
     # Exibir os dados
+    print("\n\n")
     for chave, valor in alunos_dict2.items():
         print(f"{chave}: {valor}")
+    media_da_turma = calcular_media_geral(alunos_dict2)
+    print(f'\nA média da turma é de {media_da_turma} !\n')
 
 #CHAMADA DE FUNÇÃO
-inserir_aluno("Ricardo Back", "B", 10)
+
+#inserir_aluno("Ricardo Back", "B", [10, 9])
+#retornar_log_turma('B')
+retornar_log()
 conexao.commit()
 conexao.close()
