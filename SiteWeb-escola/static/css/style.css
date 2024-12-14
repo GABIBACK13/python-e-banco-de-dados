@@ -21,6 +21,7 @@ main {
     box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.35);
 }
 fieldset {
+    position: relative;
     padding: 16px;
     border-radius: 4px;
     border-color: gray;
@@ -38,6 +39,29 @@ input#Iname {
 Select#Iturma {
     padding: 8px;
     width: 40%;
+}
+input#registrarInput {
+    position: absolute;
+    width: 130px;
+    height: 42px;
+    background-color: rgb(203, 203, 203);
+    padding: 8px;
+    font-size: 1.04em;
+    border: 3px solid black;
+    border-radius: 8px;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+    left: 70%;
+    top: 87%;
+}
+input#registrarInput:hover {
+    cursor: pointer;
+    transition-duration: 0.4s;
+    box-sizing: border-box;
+    width: 136.5px;
+    height: 44.1px;
+    transform: translate(-3.25px, -1.05px);
+    background-color: white;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.45);
 }
 table, th, td {
     margin: auto;

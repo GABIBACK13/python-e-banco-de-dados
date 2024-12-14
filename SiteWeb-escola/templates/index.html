@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ESCOLA X</title>
-    <link rel="stylesheet" href="../estilo/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="../static/css/style.css">
 </head>
 <body>
     <section class ="container">
@@ -30,6 +31,9 @@
                         </optgroup>
                     </select>
                 </div>
+                <div>
+                    <input type="submit" value="REGISTRAR" id="registrarInput">
+                </div>
             </fieldset>
             <!-- FAÇO DEPOIS <div>
                 <label for="Inota1">Nota 1: </label>
@@ -42,27 +46,26 @@
             <div>
                 <label for="Inota3"></label>
             </div> -->
+
         </form>
     </section>
-    <main>
-        <table>
-            <thead>
-                <tr>
-                    <th>Registro</th>
-                    <th>Aluno</th>
-                    <th>Turma</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for aluno in Alunos %}
-                <tr>
-                    <td>{{ aluno.id }}</td>
-                    <td>{{ aluno.name }}</td>
-                    <td>{{ aluno.turma }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </main>
+    <table>
+        <thead>
+            <tr>
+                <th>Registro</th>
+                <th>Aluno</th>
+                <th>Turma</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for aluno in alunos %}
+            <tr>
+                <td>{{ aluno.id }}</td>
+                <td>{{ aluno.name }}</td>
+                <td>{{ aluno.turma }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </body>
 </html>
