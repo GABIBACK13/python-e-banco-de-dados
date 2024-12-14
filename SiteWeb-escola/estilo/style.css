@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+body {
+    background-color: rgb(239, 221, 198);
+}
+main {
+    padding: 20px;
+}
+.container {
+    margin: auto;
+    margin: 8px;
+    padding: 16px;
+    border: 2px solid black;
+    border-radius: 8px;
+    background-color: rgb(243, 243, 243);
+    box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.35);
+}
+fieldset {
+    padding: 16px;
+    border-radius: 4px;
+    border-color: gray;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.405);
+    background-color: rgb(234, 234, 234);
+}
+form div {
+    padding: 16px;
+    font-size: 1.08em;
+}
+input#Iname {
+    padding: 16px;
+    width: 60%;
+}
+Select#Iturma {
+    padding: 8px;
+    width: 40%;
+}
+table, th, td {
+    margin: auto;
+    border-collapse: collapse;
+    border: 2px solid black;
+    padding: 8px;
+}
+table{
+    width: 90%;
+    margin: 16px;
+    background-color: white;
+}
+ tbody tr:nth-child(2n -1) {
+    background-color: rgb(234, 234, 234);
+}

@@ -13,3 +13,19 @@ def get_db_connection():
 def index():
     conn = get_db_connection()
     
+    if request.method == 'POST':
+        name = request.form['name']
+        turma = request.form['turma']
+        try:
+            conn.execute('INSERT INTO alunos (nome, turma) VALUES (?, ?)', (name, turma))
+            conn.commit()
+        except sqlite3.IntegrityError:
+            return 'aluno já existe'
+        
+    alunos = conn.execute('SELECT * FROM alunos').fetchall()
+    conn.close()
+    return render_template('index.html', alunos=alunos)
+
+# Iniciar o servidor
+if __name__ == '__main__':
+    app.run(debug=True)

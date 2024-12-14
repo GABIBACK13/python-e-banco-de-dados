@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESCOLA X</title>
+    <link rel="stylesheet" href="../estilo/style.css">
+</head>
+<body>
+    <section class ="container">
+        <form method="POST" action="/">
+            <fieldset>
+                <legend> CADASTRAR ALUNO </legend>
+                <div>
+                    <label for="Iname">Nome: </label>
+                    <input type="text" name="name" id="Iname" autocomplete="name" placeholder="Nome Completo do Aluno" maxlength="30" minlength="5" required>
+                </div>
+                <div>
+                    <label for="Iturma">Turma: </label>
+                    <select name="turma" id="Iturma" required>
+                        <optgroup label="1º Ano">
+                            <option value="1A">Turma A</option>
+                            <option value="1B">Turma B</option>
+                            <option value="1C">Turma C</option>
+                        </optgroup>
+                        <optgroup label="2º Ano">
+                            <option value="2A">Turma A</option>
+                            <option value="2B">Turma B</option>
+                            <option value="2C">Turma C</option>
+                        </optgroup>
+                    </select>
+                </div>
+            </fieldset>
+            <!-- FAÇO DEPOIS <div>
+                <label for="Inota1">Nota 1: </label>
+                <input type="number" name="nota1" id="Inota1">
+            </div>
+            <div>
+                <label for="Inota2">Nota 2: </label>
+                <input type="number" name="nota2" id="Inota2">
+            </div>
+            <div>
+                <label for="Inota3"></label>
+            </div> -->
+        </form>
+    </section>
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>Registro</th>
+                    <th>Aluno</th>
+                    <th>Turma</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for aluno in Alunos %}
+                <tr>
+                    <td>{{ aluno.id }}</td>
+                    <td>{{ aluno.name }}</td>
+                    <td>{{ aluno.turma }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>
